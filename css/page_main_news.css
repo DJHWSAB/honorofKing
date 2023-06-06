@@ -1,0 +1,231 @@
+/* page_main_news.css文件 新闻区域 */
+
+.news-section {
+  position: relative;
+  display: flex;
+  height: 342px;
+  /* background-color: #f00; */
+  background: url(../img/main_news_bg.png) no-repeat;
+}
+
+/* --------------------- 轮播图(banner) --------------------- */
+.news-section .banner {
+  width: 605px;
+  /* background-color: #f00; */
+}
+
+/* 1.图片数据ul */
+.news-section .banner .images-list {
+  display: flex;
+  /* 📢: 为什么这里设置w604,因为新闻区域的背景图有一条线分隔开 */
+  /* 因为剩下的1px是背景图片的边框 */
+  width: 604px;
+  overflow: hidden;
+}
+
+/* li */
+.news-section .banner .images-list li {
+  /* 📢: flex-shrink 决定了 flex items 如何收缩(缩小)(默认为1) */
+  flex-shrink: 0;
+}
+
+/* a */
+.news-section .banner .images-list .item {
+  display: inline-block;
+}
+
+.news-section .banner .images-list .item img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 2.标题数据(ul) */
+.news-section .banner .title-list {
+  display: flex;
+  height: 44px;
+  line-height: 44px;
+}
+
+/* li */
+.news-section .banner .title-list li {
+  flex: 1;
+   /* 📢: flex布局和white-space的冲突：如果子盒子设置white-space，必须给flex：1( flex-grow: 1; 拉伸)的父盒子设置overflow: hidden;要不然会撑大父盒子的内容 */
+  overflow: hidden;
+}
+
+/* a */
+.news-section .banner .title-list .item {
+  display: block;
+  color: #b1b2be;
+  text-align: center;
+}
+
+.news-section .banner .title-list .item.active,
+.news-section .banner .title-list .item:hover {
+  color: #f3c258;
+  background-color: rgba(255,255,255,0.15);
+}
+
+
+/* --------------------- /轮播图(banner) --------------------- */
+
+
+/* --------------------- 新闻(news) --------------------- */
+.news-section .news {
+  flex: 1;
+  padding: 0 17px;
+  /* 📢: flex布局和white-space的冲突：如果子盒子设置white-space，必须给flex：1( flex-grow: 1; 拉伸)的父盒子设置overflow: hidden;要不然会撑大父盒子的内容 */
+  overflow: hidden;
+
+  /* background-color: #0f0; */
+}
+
+/* 1.标题数据 */
+.news-section .news .title-list {
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+
+.news-section .news .title-list .item {
+  display: inline-block;
+  width: 52px;
+  height: 48px;
+  box-sizing: border-box;
+  /* 📢: 为什么直接给ul设置height和line-height(45px),a标签再继承line-height的大小? */
+  /* 因为如果直接给ul设置height和line-height,那ul的高度为46px,a标签的高度为48px,鼠标经过a标签时下划线出现在ul的下边框的下面而不是上面!!! */
+  line-height: 45px;
+  color: #b8b9c5;
+  text-align: center;
+  border-bottom: 3px solid transparent;
+  /* 过渡动画 */
+  /* transition: border-bottom .225s ease-out, color .225s ease-out; */
+  transition: all .225s ease-out;
+
+}
+
+/* :not()否定伪类 */
+.news-section .news .title-list .item.active,
+.news-section .news .title-list .item:not(.more):hover {
+  color: #f3c258;
+  border-bottom-color:#f3c258;
+}
+
+/* 2.公告 */
+.news-section .news .notice {
+  height: 36px;
+  line-height: 36px;
+  padding: 0 15px;
+  margin: 18px 0 11px;
+  background-color: #414046;
+}
+
+.news-section .news .notice a {
+  /* 📢：行内块级元素必须设置宽度，才可以显示省略号 */
+  /* display: inline-block; */
+  display: block;
+  width: 230px;
+  font-size: 18px;
+  color: #f3c258;
+}
+
+/* 3.新闻数据(ul) */
+
+/* li */
+.news-section .news .news-list .item {
+  display: flex;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+  margin-bottom: 11px;
+}
+
+/* a */
+.news-section .news .news-list .item .desc {
+  flex: 1;
+  color: #b8b9c5;
+
+}
+
+/* span */
+.news-section .news .news-list .item .date {
+  font-size: 12px;
+  padding-left: 27px;
+  color: #999;
+}
+
+
+
+/* --------------------- /新闻(news) --------------------- */
+
+
+/* --------------------- 下载(download) --------------------- */
+.news-section .download {
+  width: 236px;
+  /* background-color: #00f; */
+}
+
+/* 下载游戏 */
+.news-section .download .download-btn {
+  position: relative;
+  display: block;
+  height: 128px;
+  background: url(../img/main_sprite.png) no-repeat 0 -219px;
+  overflow: hidden;
+}
+
+.news-section .download .download-btn .move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.8);
+  transform: rotate(-45deg);
+  /* 无限动画 */
+  animation: moveAnim 1.6s ease-in infinite;
+  /* 高斯模糊 */
+  filter: blur(32px);
+}
+
+/* 对局环境 */
+.news-section .download .guard-btn {
+  display: block;
+  height: 106px;
+  background: url(../img/main_sprite.png) no-repeat 0 -350px;
+}
+
+/* 体验专区 */
+.news-section .download .experience-btn {
+  display: block;
+  height: 108px;
+  background: url(../img/main_sprite.png) no-repeat 0 -461px;
+}
+
+/* --------------------- /下载(download) --------------------- */
+
+
+/* --------------------- 注意(caution) --------------------- */
+.news-section .caution {
+  position: absolute;
+  top: 0;
+  right: -58px;
+  width: 53px;
+  /* height: 100px; */
+  /* background-color: #f00; */
+}
+
+.news-section .caution .ageTips {
+  display: block;
+  height: 68px;
+  background: url(../img/age_tips.png);
+}
+
+.news-section .caution .preventAddiction {
+  display: block;
+  height: 47px;
+  margin-top: 10px;
+  background: url(../img/preventAddiction.png);
+  background-size: cover;
+}
+/* --------------------- /注意(caution) --------------------- */

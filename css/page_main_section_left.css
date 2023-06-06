@@ -1,0 +1,89 @@
+/* page_main_section_left.css文件 内容区域的左侧 */
+
+/* 1.内容中心 */
+.content-center {
+  margin-bottom: 20px;
+}
+
+/* 2.赛事中心 */
+.match-center {
+  margin-bottom: 20px;
+}
+
+/* 赛事新闻 */
+.match-center .match-news {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 新闻左侧 */
+.match-center .match-news .news-left {
+  margin-right: 19px;
+  /* background-color: #00f; */
+}
+
+/* 新闻右侧 */
+.match-center .match-news .news-right {
+  flex: 1;
+  /* background-color: #f00; */
+  overflow: hidden;
+   /* 📢: flex布局和white-space的冲突：如果子盒子设置white-space，必须给flex：1( flex-grow: 1; 拉伸)的父盒子设置overflow: hidden;要不然会撑大父盒子的内容 */
+}
+
+/* 1.大标题 */
+.match-center .match-news .news-right .title {
+  display: block;
+  padding-right: 47px;
+  font-size: 24px;
+  color: #333;
+}
+
+.match-center .match-news .news-right .title:hover {
+  /* 下划线 */
+  text-decoration: underline;
+}
+
+/* 2.小标题 */
+.match-center .match-news .news-right .subtitle {
+  display: block;
+  color: #666;
+  padding-right: 191px;
+}
+
+/* 3.新闻数据 */
+.match-center .match-news .news-right .item {
+  display: flex;
+  margin-top: 11px;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+}
+
+/* 字体图标 */
+.match-center .news-right .icon-match {
+  height: 19px;
+  margin-right: 12px;
+  line-height: 19px;
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  border: 2px solid #e3e3e3;
+  border-radius: 10px;
+  background-color: #e3e3e3;
+}
+
+/* 描述 */
+.match-center .news-right .desc {
+  flex: 1;
+  padding-right: 99px;
+}
+
+.match-center .news-right .desc:hover {
+  /* 下划线 */
+  text-decoration: underline;
+}
+
+/* 日期 */
+.match-center .news-right .date {
+  font-size: 12px;
+  color: #b8b9c5;
+}

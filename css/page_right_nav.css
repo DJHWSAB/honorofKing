@@ -1,0 +1,150 @@
+/* page_right_nav.css文件 右侧导航 */
+
+.right-nav {
+  position: relative;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 254px;
+  height: 494px;
+  background: url(../img/right_nav_bg.png) no-repeat top left;
+  /* 📢: pointer-events CSS 属性指定在什么情况下 (如果有) 某个特定的图形元素可以成为鼠标事件的,默认是auto,可以继承 */
+  pointer-events: none;
+}
+
+/* 头像 */
+.right-nav .right-dj {
+  position: absolute;
+  top: 15px;
+  left: 24px;
+  width: 165px;
+  height: 145px;
+  background: url(../img/right_dj.png) no-repeat top center;
+}
+
+.right-nav .right-dj p {
+  position: relative;
+  top: 37px;
+  left: 12px;
+  width: 88px;
+  height: 18px;
+  /* padding-left: 2px; */
+  text-indent: 2px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #62401b;
+}
+
+/* 右侧导航数据(ul) */
+.right-list {
+  position: absolute;
+  top: 160px;
+  left: 85px;
+  width: 117px;
+  pointer-events: auto;
+}
+
+.right-list .item {
+  position: relative;
+  height: 38px;
+  background: url(../img/right_all.png) no-repeat;
+  background-size: 360px 569px;
+}
+
+/* 前三个,只要最后两个 */
+.right-list .item:nth-child(-n+3):not(.code) {
+  margin-top: 1px;
+}
+
+/* 二维码 */
+.right-list .item.code {
+  height: 132px;
+  padding-top: 2px;
+  text-align: center;
+  background-position: -243px 0;
+}
+
+.right-list .item img {
+  margin-bottom: 6px;
+  width: 101px;
+  height: 100px;
+}
+
+.right-list .item.code img {
+  width: 107px;
+  height: 107px;
+}
+
+/* 王者营地 */
+.right-list .item.wzyd {
+  background-position: -243px -134px;
+}
+
+.right-list .item.wzyd:hover {
+  background-position: -243px -172px;
+}
+
+/* 官方微博 */
+.right-list .item.weibo {
+  background-position: -122px -120px;
+}
+
+.right-list .item.weibo a {
+  display: block;
+  height: 100%;
+}
+
+.right-list .item.weibo:hover {
+  background-position: -122px -240px;
+}
+
+/* 微信公众号 */
+.right-list .item.weChat {
+  background-position: -122px -160px;
+}
+
+.right-list .item.weChat:hover {
+  background-position: -122px -200px;
+}
+
+/* 官方视频号 */
+.right-list .item.gfvideo {
+  background-position: -122px 0;
+}
+
+.right-list .item.gfvideo:hover {
+  background-position: -122px -42px;
+}
+
+
+.right-list .item .album {
+  /* 默认隐藏 */
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: -66px;
+  left: -115px;
+  width: 115px;
+  height: 151px;
+  box-sizing: border-box;
+  padding-top: 7px;
+  background: url(../img/right_all.png) no-repeat 0 -416px;
+  font-size: 12px;
+  color: #dcdcdc;
+  text-align: center;
+}
+
+.right-list .item:hover .album {
+  display: block;
+  animation: opacityAnim .4s ease-in-out forwards;
+}
+
+.right-list .item .album p {
+  height: 17px;
+  line-height: 17px; 
+}
+
+.right-list .item .album p span {
+  color: #cd974b;
+}

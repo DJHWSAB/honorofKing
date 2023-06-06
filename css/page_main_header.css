@@ -1,0 +1,192 @@
+/* page_main_header.css文件 */
+
+.header {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 1.主导航 */
+.header .area {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  height: 84px;
+  /* line-height: 84px; */
+}
+
+/* --------------------- 左侧区域 --------------------- */
+.header .area .area-left {
+  display: flex;
+  /* background-color: #f00; */
+}
+
+/* 1.logo */
+.header .area-left .logo a {
+  /* 垂直居中显示 <- 📢: 为什么失效,h1的高度由a标签撑开的,所以可以通过设置flex,高度自动拉满,垂直居中才会生效 */
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  background: url(../img/logo.png) no-repeat center center;
+  /* 文字隐藏 <- 文字缩进(前提条件: 块级元素) */
+  text-indent: -9999px;
+}
+
+/* 2.主导航(ul) */
+.header .area-left .nav-list {
+  display: flex;
+  margin-left: 30px;
+}
+
+/* li */
+.header .area-left .nav-list .item {
+  width: 115px;
+  padding-right: 5px;
+  box-sizing: border-box;
+}
+
+/* 📢: 什么时候a标签使用lin-block?
+  1.如果前面li没有设置,a标签可以设置line-block(前提条件是左右布局,要不然会有上下间隙)
+  2.如果前面li有设置,a标签只能设置block
+*/
+
+/* a */
+.header .area-left .nav-list .item a {
+  display: block;
+  /* 📢: 为什么不通过继承父盒子的line-height,因为每一行文本会继承line-height,总共两行文本,所以行盒的line-height = line-height * 2 */
+  /* height: 84px; */
+  height: 100%;
+  padding-top: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #c9c9dd;
+  text-align: center;
+}
+
+/* span */
+.header .area-left .nav-list .item a .desc {
+  display: block;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #858792;
+}
+
+.header .area-left .nav-list .item.active,
+.header .area-left .nav-list .item:hover {
+  background: url(../img/main_sprite.png) no-repeat;
+}
+
+.header .area-left .nav-list .item.active a,
+.header .area-left .nav-list .item:hover a {
+  color: #e4b653;
+}
+
+.header .area-left .nav-list .item.active a .desc,
+.header .area-left .nav-list .item:hover a .desc {
+  color: #91763f;
+}
+
+/* 3.搜索框 */
+.header .area-left .search {
+  margin-left: 10px;
+}
+
+.header .area-left .search a {
+  /* 垂直居中 */
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: inline-block;
+  width: 27px;
+  height: 26px;
+  background: url(../img/nav_search.png) no-repeat;
+}
+
+/* --------------------- /左侧区域 --------------------- */
+
+
+/* --------------------- 右侧区域 --------------------- */
+.header .area .area-right {
+  display: flex;
+  /* 垂直方向: 居中显示 */
+  align-items: center;
+  color: #fff;
+  /* background-color: #00f; */
+}
+
+.header .area-right .login img {
+  display: inline-block;
+  border: 1px solid #d9ad50;
+  border-radius: 42px;
+}
+
+.header .area-right .info {
+  margin-left: 7px;
+  color: #858792;
+}
+
+.header .area-right .info a {
+  font-size: 16px;
+  color: #fff;
+}
+
+/* --------------------- /右侧区域 --------------------- */
+
+/* 2.下拉菜单 */
+.header .dropDownMenu {
+  position: absolute;
+  /* 📢: 为什么这里要设置定位的原因 <-为什么下拉菜单比header的rgba还黑
+    因为设置了两层背景颜色,而且下拉菜单没有脱标,会把header给撑大. */
+  top: 84px;
+  /* 绝对定位/l0/r0获取宽度 */
+  left: 0;
+  right: 0;
+  /* height: 285px; */
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* 过渡动画 */
+  transition: height .3s ease;
+  /* 当高度为0,隐藏文字 */
+  overflow: hidden;
+}
+
+.header:hover .dropDownMenu {
+  height: 285px;
+}
+
+/* 内部 */
+.header .dropDownMenu .inner {
+  display: flex;
+  width: 940px;
+  height: 100%;
+  /* box-sizing必须设置(前提条件是有设置宽高度) */
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 15px 0 30px 50px;
+}
+
+/* dl */
+.header .dropDownMenu .list {
+  width: 115px;
+  text-align: center;
+}
+
+/* a */
+.header .dropDownMenu .list .item {
+  /* 字体图标和文字居中显示 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* display: block; */
+  height: 30px;
+  line-height: 30px;
+  color: #c9c9dd;
+}
+
+.header .dropDownMenu .list .item:hover {
+  color: #f3c258;
+  /* 下划线 */
+  text-decoration: underline;
+}

@@ -1,0 +1,33 @@
+/* page_main文件 整体布局 */
+.main {
+  background: url(../img/main_bg.jpg) no-repeat center top;
+}
+
+/*  main-link */
+.main .link {
+  display: block;
+  width: 1200px;
+  height: 440px;
+  /* margin-bottom: 16px; */
+  /* margin: 0 auto; */
+  margin: 0 auto 16px;
+  /* 隐藏文字 <- 文字缩进(前提条件是块级元素) */
+  text-indent: -999px;
+}
+
+/* 内容区域 */
+.content-section {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+}
+
+/* 左侧区域 */
+.content-section .area-left {
+  width: 872px;
+}
+
+/* 右侧区域 */
+.content-section .area-right {
+  width: 295px;
+}

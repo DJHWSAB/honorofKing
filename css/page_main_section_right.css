@@ -1,0 +1,155 @@
+/* page_main_section_right.css文件 内容区域的右侧  */
+
+/* -------------- 英雄/皮肤 -------------- */
+/* 新英雄 */
+.new-hero {
+  width: 294px;
+  height: 224px;
+  margin-bottom: 10px;
+}
+
+/* 1.封面 */
+.new-hero .album {
+  display: block;
+  height: 156px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.new-hero .album img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 2.介绍 */
+.new-hero .intro {
+  padding: 10px 15px;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+  border-radius: 0 0 2px 2px;
+}
+
+.new-hero .intro .name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.new-hero .intro .time {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 英雄数据(ul) */
+.hero-list {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+}
+
+/* a */
+.hero-list .item {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-list .item .cover {
+  opacity: 0;
+  /* 默认隐藏 */
+  /* display: none; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-lr;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: #f3c258;
+  background-color: rgba(0,0,0,.88);
+  /* 文字间距 */
+  letter-spacing: 0.3em;
+  /* 📢: transition不支持transition动画,如果一定要使用display建议搭配animation动画 */
+  /* 过渡动画 */
+  transition: opacity .3s ease-in;
+
+}
+
+.hero-list .item:hover .cover {
+  opacity: 1;
+  /* display: flex; */
+  /* 动画 */
+  /* animation: opacityAnim .3s ease-in-out; */
+}
+
+/* -------------- /英雄/皮肤 -------------- */
+
+
+/* -------------- KPL赛程 -------------- */
+.kpl-schedule {
+  margin-top: 20px;
+}
+
+/* 赛程时间 */
+.kpl-schedule .schedule-time {
+  text-align: center;
+}
+
+.kpl-schedule .schedule-time thead tr {
+  height: 29px;
+  line-height: 29px;
+  color: #999;
+  background-color: #f5f5f5;
+}
+
+.kpl-schedule .schedule-time tbody tr {
+  height: 67px;
+  font-size: 12px;
+  color: #333;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.kpl-schedule .schedule-time tbody tr td:first-child {
+  width: 80px;
+  height: 100%;
+}
+
+.kpl-schedule .schedule-time tbody tr td:nth-child(2n) {
+  width: 79px;
+}
+
+.kpl-schedule .schedule-time tbody tr td:nth-child(3) {
+  width: 57px;
+  font-size: 14px;
+  color: #f3c258;
+}
+
+.kpl-schedule .schedule-time tbody tr td .team {
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  margin-bottom: 4px;
+}
+
+.kpl-schedule .schedule-time tbody tr td .team img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 比赛赛程 */
+.kpl-schedule .match-schedule {
+  display: inline-block;
+  width: 293px;
+  height: 159px;
+  margin-top: 15px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.kpl-schedule .match-schedule img {
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------- /KPL赛程 -------------- */

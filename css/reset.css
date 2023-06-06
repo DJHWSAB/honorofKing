@@ -1,0 +1,40 @@
+/* reset.css文件 样式重置 */
+
+html,body,div,h1,h2,h3,p,ul,ol,li,dl,dt,dd,a,span,i,table, caption, tbody, tfoot, thead, tr, th, td {
+  /* 去除默认的margin和padding */
+  margin: 0;
+  padding: 0;
+}
+
+ul,ol,li {
+  /* 去除小圆点 */
+  list-style: none;
+}
+
+a {
+  /* 去除下划线 */
+  text-decoration: none;
+  /* 去除外轮廓 */
+  outline: none;
+  color: #333;
+}
+
+body {
+  /* height: 1300px; */
+  min-width: 1300px;
+  font: 14px/1.5 "Microsoft YaHei",Tahoma,"simsun",sans-serif;
+}
+
+img {
+  vertical-align: top;
+  /* display: block; */
+}
+
+i {
+  font-style: normal;
+}
+
+table {
+  /* 合并边框 */
+  border-collapse: collapse;
+}

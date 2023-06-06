@@ -1,0 +1,147 @@
+/* page_top文件 顶部导航 */
+
+.top {
+  height: 42px;
+  border-bottom: 1px solid #f5f5f5;
+  box-sizing: border-box;
+}
+
+.top .area {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* 📢: 没有给div设置高度,正常情况下高度应该由内容决定的,但是它这里居然把我们整行都占满了? */
+  /* 默认情况下align-items:normal 相当于stretch 拉伸,它会自动拉伸成我们对应这里的一个高度 */
+  /* align-items: center; */
+  /* background-color: #f00; */
+  height: 41px;
+  line-height: 41px;
+}
+
+/* --------------------- 左侧区域 --------------------- */
+.top .area .area-left {
+  display: flex;
+  /* background-color: #f00; */
+}
+
+/* 1.logo */
+.top .area-left .logo a {
+  position: relative;
+  /* 📢: z-index 仅对定位元素有效 */
+  z-index: 2;
+  display: inline-block;
+  width: 150px;
+  /* 隐藏文字 <- 文字缩进(前提条件是块级元素) */
+  text-indent: -99999px;
+  background: url(../img/top_logo.png) no-repeat top center;
+}
+
+/* 2.推荐(recommend) */
+.top .area-left .recommend {
+  position: relative;
+}
+
+.top .area-left .recommend .recommend-add {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -150px;
+  z-index: 1;
+}
+
+.top .area-left .recommend:hover .recommend-add {
+  display: block;
+}
+
+/* --------------------- /左侧区域 --------------------- */
+
+
+/* --------------------- 右侧区域(ul) --------------------- */
+.top .area .area-right {
+  display: flex;
+  /* background-color: #00f; */
+}
+
+.top .area .area-right a {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  color: #464646;
+}
+
+/* 1.成长守护平台 */
+.top .area .area-right a.growth {
+  /* 📢: 这里的pl控制绝对定位的left */
+  padding-left: 30px;
+}
+
+/* 鼠标经过字体变色 */
+.top .area .area-right a.growth:hover {
+  color: #ff4e00;
+}
+
+/* 字体图标 */
+.top .area-right .growth .icon-grow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url(../img/top_sprite.png) no-repeat -30px 0;
+}
+
+/* 2.腾讯游戏排行榜 */
+.top .area-right a.rank {
+  margin-left: 20px;
+  padding-right: 25px;
+}
+
+/* 字体图标 */
+.top .area-right a.rank::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 0;
+  content: "";
+  /* display: inline-block; */
+  width: 30px;
+  height: 30px;
+  background: url(../img/top_sprite.png) no-repeat;
+  /* 旋转90° */
+  transform: rotate(90deg);
+  /* 控制字体图标的背景颜色透明 */
+  opacity: 0.1;
+}
+
+/* 下拉菜单 */
+.top .area-right a.rank .dropDownMenu {
+  /* 默认隐藏 */
+  display: none;
+  position: absolute;
+  top: 41px;
+  right: 0;
+  width: 708px;
+  height: 582px;
+  /* 过渡动画 */
+  transition: opacity .3s ease-in-out;
+  /* 📢: z-index 仅对定位元素有效 */
+  z-index: 1;
+}
+
+.top .area-right a.rank:hover .dropDownMenu {
+  /* 鼠标经过显示 */
+  display: block;
+  /* 动画 */
+  animation: opacityAnim .3s ease-in-out;
+}
+
+/* 📢: 在CSS中display只有显示动画,离开是没有动画的,display属性不支持transition
+  📢: 在CSS中opacity显示和离开是有动画的,opacity属性支持transition动画过渡,如果绝对定位的盒子不在相对定位盒的盒子范围,会影响下面布局
+ */
+
+
+/* --------------------- /右侧区域 --------------------- */

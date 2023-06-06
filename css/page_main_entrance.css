@@ -1,0 +1,26 @@
+/* page_main_entrance.css文件 入口区域 */
+
+.entrance-section {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* height: 134px; */
+  margin: 28px 0 34px;
+}
+
+.entrance-section .item {
+  display: inline-block;
+  /* 图片放大超出隐藏 */
+  overflow: hidden;
+}
+
+.entrance-section .item img {
+  width: 100%;
+  height: 100%;
+  /* 过渡动画 */
+  transition: transform .4s ease;
+}
+
+.entrance-section .item:hover img {
+  transform: scale(1.1);
+}

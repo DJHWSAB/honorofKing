@@ -1,0 +1,252 @@
+/* common.css文件 公共样式 */
+
+/* 1.版心 */
+.top_wrapper {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.header_wrapper {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.main_wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.footer_wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* 2.1封装字体图标类型(一) */
+.icon_type01 {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(../img/main_sprite.png) no-repeat;
+}
+
+.icon_type01_hot {
+  background-position: -163px -68px;
+}
+
+.icon_type01_new {
+  background-position: -137px -68px;
+}
+
+.icon_type01_guard {
+  background-position: -136px -5px;
+}
+
+/* 2.2封装字体图标类型(二) */
+/* 第一种通过i标签实现 */
+/* .icon_type02 {
+  display: inline-block;
+  width: 32px;
+  height: 18px;
+  box-sizing: border-box;
+  line-height: 16px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+}
+
+.icon_type02_hot {
+  color: #ff3636;
+}
+
+.icon_type02_notice {
+  color: #f4be19;
+} */
+
+/* 第二种利用伪元素实现,建议使用第二种 */
+.icon_type02::before {
+  display: inline-block;
+  width: 32px;
+  height: 18px;
+  box-sizing: border-box;
+  line-height: 16px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid transparent;
+}
+
+
+.icon_type02_hot::before {
+  content: "新闻";
+  color: #ff3636;
+  border-color: #ff3636;
+}
+
+
+.icon_type02_notice::before {
+  content: "公告";
+  color: #f4be19;
+  border-color: #f4be19;
+}
+
+
+/* 3.单行文本显示省略号 */
+.nowrap_ellipsis {
+  /* 1.不换行 */
+  white-space: nowrap;
+  /* 2.显示省略号 */
+  text-overflow: ellipsis;
+  /* 3.超出隐藏 */
+  overflow: hidden;
+}
+
+/* 4.1封装头部区域类型(一) */
+.section_header {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  /* 垂直方向: 居中对齐 */
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section_header .header_left .title {
+  font-size: 22px;
+  color: #323235;
+  /* ❤️ 字体图标的使用:
+    1.通过i标签
+    2.伪元素
+    3.background
+  📢: 如果所需要的精灵图没有内容可以直接使用background 或者 包裹着标签的文字不多情况下可以直接使用background,要不然只能使用i标签 或者 伪元素
+  优点: 不需要清除行内级元素的间隙 
+  */
+  /* ❤️ 如果字体是背景图片,如何调整文字与背景图片的位置? */
+  /* 1.缩进文字(前提条件是块级元素) */
+  /* text-indent: 33px; */
+  /* 2.pl */
+  padding-left: 33px;
+  background: url(../img/main_sprite.png) no-repeat 0 -102px;
+}
+
+/* 赛事中心 */
+.section_header .header_left .title-icon-match {
+  background-position: 0 -180px;
+}
+
+/* 英雄/皮肤 */
+.section_header .header_left .title-icon-hero {
+  background-position: 0 -139px;
+}
+
+/* kPL赛程 */
+.section_header .header_left .title-icon-kpl {
+  background-position: -157px -103px;
+}
+
+.section_header .header_right {
+  display: flex;
+  align-items: center;
+}
+
+.section_header .header_right .more {
+  display: inline-block;
+  /* padding-left: 22px; */
+  text-indent: 22px;
+  color: #999;
+  background: url(../img/main_sprite.png) no-repeat -252px 4px;
+}
+
+/* 购票 */
+.section_header .header_right .buy {
+  display: inline-block;
+  width: 70px;
+  height: 22px;
+  box-sizing: border-box;
+  margin-right: 20px;
+  /* padding-left: 32px; */
+  text-indent: 32px;
+  background: url(../img/main_sprite.png) no-repeat -243px -85px;
+  border: 1px solid #f3c258;
+  border-radius: 3px;
+}
+
+.section_header .header_right .more:hover {
+  color: #f3c258;
+}
+
+/* 4.2封装头部区域类型(二) */
+.tab_control {
+  display: flex;
+  margin-bottom: 13px;
+  background-color: #f5f5f5;
+}
+
+.tab_control .item {
+  /* flex-basis 用来设置 flex items 在 main axis 方向上的 base size */
+  /* flex 是 flex-grow || flex-shrink || flex-basis 的简写 */
+  /* flex: 1; => 1 1 0 */
+  /* flex: 0; => 0 0 auto */
+  /* flex-grow: 1; 兼容性不好，所以还是使用flex：1； */
+  flex: 1;
+  height: 32px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 29px;
+  color: #999;
+  border-bottom: 3px solid transparent;
+  /* 鼠标小手 */
+  cursor: pointer;
+  /* 过渡动画 */
+  transition: all .3s ease-in;
+}
+
+.tab_control .item.item_wrap {
+  /* 主要设置 flex-grow: 0; */
+  flex: 0 0 auto;
+  padding: 0 18px;
+}
+
+
+.tab_control .item.active,
+.tab_control .item:hover {
+  border-color: #f3c258;
+  color: #333;
+}
+
+/* "|" */
+.tab_control .line {
+  width: 1px;
+  height: 20px;
+  margin: 5px 0;
+  background-color: #e1e1e1;
+}
+
+/* 4.3封装头部类型(三) */
+.tab_keywords {
+  display: flex;
+  /* 换行 */
+  flex-wrap: wrap;
+}
+
+.tab_keywords .item {
+  height: 26px;
+  box-sizing: border-box;
+  margin-right: 8px;
+  padding: 0 13px;
+  line-height: 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  /* 鼠标小手 */
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+
+
+.tab_keywords .item.active,
+.tab_keywords .item:hover {
+  color: #fff;
+  border-color: #f3c258;
+  background-color: #f3c258;
+}
+

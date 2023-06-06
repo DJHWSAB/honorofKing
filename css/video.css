@@ -1,0 +1,106 @@
+/* video.css 视频组件 */
+
+/* ul */
+.video {
+  display: flex;
+  /* 换行 */
+  flex-wrap: wrap;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* a */
+.video .item {
+  display: inline-block;
+  width: 209px;
+}
+
+/* 1.封面 */
+.video .item .album {
+  position: relative;
+  height: 125px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* 1.1图片 */
+.video .item .album img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 1.2信息 */
+.video .item .album .info {
+  display: flex;
+  /* 水平方向: 两端对齐 */
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22px;
+  padding: 0 10px;
+  line-height: 22px;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.video .info .count {
+  display: inline-block;
+  text-indent: 15px;
+  /* padding-left: 15px; */
+  background: url(../img/main_sprite.png) no-repeat -256px -59px;
+}
+
+/* 1.3遮盖层 */
+.video .album .cover {
+  /* 默认隐藏 */
+  /* display: none; */
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* 过渡动画 */
+  transition: opacity .4s ease-in-out;
+}
+
+.video .item:hover .cover {
+  opacity: 1;
+  /* display: block; */
+  /* animation: opacityAnim .4s ease-in-out forwards ; */
+}
+
+.video .album .cover .icon_play {
+  /* 水平垂直居中显示 */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(../img/main_sprite.png) no-repeat -192px -64px;
+}
+
+/* 2.描述 */
+.video .item .desc {
+  margin-top: 10px;
+  /* 文本超出隐藏 */
+  overflow: hidden;
+  /* 文本超出显示省略号 */
+  text-overflow: ellipsis;
+  /* 设置弹性盒子 */
+  display: -webkit-box;
+  /* 控制行数 */
+  -webkit-line-clamp: 2;
+  /* 元素垂直显示 */
+  -webkit-box-orient: vertical;
+}
+
